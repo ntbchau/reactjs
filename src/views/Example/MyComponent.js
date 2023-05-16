@@ -3,7 +3,12 @@ import ChildComponent from "./ChildComponent";
 class MyComponent extends React.Component {
     state = {
         firstName: "",
-        lastName: ""
+        lastName: "",
+        arrJobs: [
+            { id: 'j1', title: 'developer', salary: '500k' },
+            { id: 'j2', title: 'tester', salary: '300k' },
+            { id: 'j3', title: 'manager', salary: '1000k' },
+        ]
     }
     handleChangeFirstName = (event) => {
         this.setState({
@@ -42,7 +47,11 @@ class MyComponent extends React.Component {
                     onClick={(event) => { this.handleSubmit(event) }} />
                 <form></form>
                 <ChildComponent
-                    age='30'
+                    name={this.state.firstName}
+                    age={'30'}
+                    address={'Cologne'}
+                    arrJobs={this.state.arrJobs}
+
                 />
 
 
