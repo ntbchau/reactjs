@@ -2,32 +2,45 @@ import React, { Fragment } from "react";
 
 class MyComponent extends React.Component {
     state = {
-        address: 'Cologne',
-        friend: 'Liem'
+        firstName: "",
+        lastName: ""
     }
-    handleClickButton = () => {
-        console.log('Hit the button')
-        alert('Please click me')
-    }
-    handleOnChange = (event) => {
+    handleChangeFirstName = (event) => {
         this.setState({
-            friend: event.target.value
-
+            firstName: event.target.value
         })
     }
+    handleChangeLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(this.state)
+    }
+
 
     render() {
         console.log(this.state)
-        let name = 'Chau'
         return (
             <Fragment>
-                {/* {console.log(name + ` is my name`)} */}
-                <div> Hello my component</div>
-                <div> My name is {name} and my friend is {this.state.friend}
-                    <input value={this.state.friend} type="text" onChange={(event) => this.handleOnChange(event)} /> </div>
-
-                <div> We stay in {this.state.address}</div>
-                <button onClick={() => this.handleClickButton()}> Click Me</button>
+                <form action="/action_page.php" />
+                <label htmlFor="fname">First name:</label><br></br>
+                <input
+                    type="text"
+                    value={this.state.firstName}
+                    onChange={(event) => this.handleChangeFirstName(event)}
+                /><br></br>
+                <label htmlFor="lname">Last name:</label><br></br>
+                <input
+                    type="text"
+                    value={this.state.lastName}
+                    onChange={(event => this.handleChangeLastName(event))}
+                /><br></br>
+                <input type="button" value="Click me"
+                    onClick={(event) => { this.handleSubmit(event) }} />
+                <form></form>
             </Fragment>
         )
     }
