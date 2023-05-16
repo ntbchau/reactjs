@@ -15,12 +15,15 @@ class ChildComponent extends React.Component {
 
         let { name, age, address, arrJobs } = this.props;
         let { showJobs } = this.state;
+        /* eslint-disable no-unused-vars */
         let check = showJobs === true ? 'showJobs= true' : 'showJobs=false'
+        /* eslint-disable no-unused-vars */
         return (
 
             < Fragment >
                 console.log(check)
                 <div> HI My child age is:{name}-{age}-{address}</div>
+
                 {showJobs === false ?
                     <div>
                         <button onClick={() => this.handleShowHide()}>Show</button>
@@ -38,6 +41,7 @@ class ChildComponent extends React.Component {
                                             </div>
                                         )
                                     }
+
                                 })
                             }
 
@@ -49,6 +53,7 @@ class ChildComponent extends React.Component {
                         </div>
                     </>
                 }
+
             </Fragment >
         )
     }
