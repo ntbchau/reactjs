@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-
+import ChildComponent from "./ChildComponent";
 class MyComponent extends React.Component {
     state = {
         firstName: "",
@@ -41,6 +41,11 @@ class MyComponent extends React.Component {
                 <input type="button" value="Click me"
                     onClick={(event) => { this.handleSubmit(event) }} />
                 <form></form>
+                <ChildComponent
+                    age='30'
+                />
+
+
             </Fragment>
         )
     }
