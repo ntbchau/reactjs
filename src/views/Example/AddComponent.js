@@ -28,6 +28,7 @@ class AddComponent extends React.Component {
             title: this.state.title,
             salary: this.state.salary
         })
+
         this.setState({
             title: '',
             salary: '',
@@ -49,7 +50,7 @@ class AddComponent extends React.Component {
                     value={this.state.salary}
                     onChange={(event => this.handleChangesalary(event))}
                 /><br></br>
-                <input type="button" value="Click me"
+                <input type="button" value="Submit"
                     onClick={(event) => { this.handleSubmit(event) }} />
                 <form></form>
             </>

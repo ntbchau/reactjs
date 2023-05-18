@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
 import MyComponent from './Example/MyComponent';
+// import Component from './Example/Component.js'
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
           Hello Liem from MASTER Chau
         </p>
 
-        <MyComponent />
+        < MyComponent />
+        {/* <Component /> */}
       </header>
     </div>
   );

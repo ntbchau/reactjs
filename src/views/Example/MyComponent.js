@@ -12,9 +12,19 @@ class MyComponent extends React.Component {
     }
     addNewJob = (job) => {
         console.log('check from parent', job)
+        //let currentJobs = this.state.arrJobs;// cach1
+        //currentJobs.push(job)//cach1
 
         this.setState({
-            arrJobs: [...this.state.arrJobs, job]
+            //arrJobs: currentJobs//cach1
+            arrJobs: [...this.state.arrJobs, job]//cach2
+        })
+    }
+    deleteJob = (job) => {
+        let currentJob = this.state.arrJobs;
+        currentJob = currentJob.filter(item => item.id !== job.id);
+        this.setState({
+            arrJobs: currentJob
         })
     }
 
@@ -26,6 +36,7 @@ class MyComponent extends React.Component {
             <Fragment>
                 <AddComponent
                     addJob={this.addNewJob}
+
                 />
 
                 <ChildComponent
@@ -33,6 +44,7 @@ class MyComponent extends React.Component {
                     age={'30'}
                     address={'Cologne'}
                     arrJobs={this.state.arrJobs}
+                    deleteJob={this.deleteJob}
 
                 />
 
