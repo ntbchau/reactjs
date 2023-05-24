@@ -9,6 +9,13 @@ class F1Component extends React.Component {
             showJobs: !this.state.showJobs
         })
     }
+    handleDeleteClick = (job) => {
+        this.props.deleteJob(job);
+        this.setState({
+            title: '',
+            salary: ''
+        })
+    }
     render() {
         let { arrJobs } = this.props
         let { showJobs } = this.state
@@ -28,11 +35,12 @@ class F1Component extends React.Component {
                                 {
 
                                     arrJobs.map((item, index) => {
-                                        if (item.salary > 500) {
+                                        if (item.salary > 50) {
                                             return (
 
                                                 <div  >
-                                                    {item.title}-{item.salary}
+                                                    {item.title}-{item.salary}$ <></>
+                                                    <span onClick={() => this.handleDeleteClick(item)}> x</span>
                                                 </div>
                                             )
                                         }

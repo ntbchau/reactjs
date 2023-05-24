@@ -20,8 +20,20 @@ class F2Component extends React.Component {
 
     }
 
-    handleClick = () => {
-        alert('click me')
+    handleClick = (job) => {
+        if (!this.state.title || !this.state.salary) {
+            alert('Missing require')
+            return;
+        }
+        this.props.addNewJob({
+            id: Math.floor(Math.random() * 100),
+            title: this.state.title,
+            salary: this.state.salary
+        })
+        this.setState({
+            title: '',
+            salary: ''
+        })
     }
     render() {
         return (

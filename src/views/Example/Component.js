@@ -10,7 +10,20 @@ class Ex1 extends React.Component {
             { id: '3', title: 'bac', salary: '100' }
         ]
     }
-
+    addNewJob = (job) => {
+        let currentJob = this.state.arrJobs;
+        currentJob.push(job);
+        this.setState({
+            arrJobs: currentJob
+        })
+    }
+    deleteJob = (job) => {
+        let currentJob = this.state.arrJobs;
+        currentJob = currentJob.filter(item => item.id !== job.id);
+        this.setState({
+            arrJobs: currentJob
+        })
+    }
     render() {
 
 
@@ -19,12 +32,15 @@ class Ex1 extends React.Component {
             <>
                 {console.log(this.state)}
                 <div> Hello Component</div>
+                <F2Component
+                    addNewJob={this.addNewJob} />
 
                 <F1Component
 
                     arrJobs={this.state.arrJobs}
+                    deleteJob={this.deleteJob}
                 />
-                <F2Component />
+
             </>
         )
 
